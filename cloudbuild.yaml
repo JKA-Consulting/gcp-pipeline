@@ -29,7 +29,8 @@ steps:
     args:
       - "-c"
       - |
-          terraform apply -auto-approve PLAN
+          terraform apply --auto-approve \
+          -var="project-id=$PROJECT_ID"
   # - timeout: "600s"
 
 
