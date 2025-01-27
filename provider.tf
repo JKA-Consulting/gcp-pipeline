@@ -6,7 +6,8 @@ terraform {
     }
   }
   backend "gcs" {
-
+    bucket = "jkaconsulting-bucket"
+    prefix = "terraform/state" 
   }
 }
 

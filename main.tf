@@ -11,8 +11,8 @@ resource "google_compute_instance" "jenkins-instance" {
   }
 
   network_interface {
-    network    = google_compute_network.marketplace-vpc.name
-    subnetwork = google_compute_subnetwork.marketplace-subnet1.name
+    network    = google_compute_network.demo-vpc.name
+    subnetwork = google_compute_subnetwork.demo-subnet1.name
 
   }
 
@@ -39,7 +39,7 @@ resource "google_compute_instance" "jenkins-instance" {
 
 resource "google_compute_firewall" "allow-ssh-rdp-icmp" {
   name    = "allow-ssh-rdp-icmp"
-  network = google_compute_network.marketplace-vpc.name
+  network = google_compute_network.demo-vpc.name
 
   allow {
     protocol = "tcp"
