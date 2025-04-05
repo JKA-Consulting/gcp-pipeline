@@ -20,7 +20,8 @@ steps:
           -var "project_id=$_PROJECT_ID" \
           -var "subnet_cidr=$_SUBNET_CIDR" \
           -var "subnet_region=$_SUBNET_REGION" \
-          -var "subnet_zone=$_SUBNET_ZONE"
+          -var "subnet_zone=$_SUBNET_ZONE" \
+          -var "region=$_REGION"
 
   - name: "hashicorp/terraform:latest"
     id: Terraform Apply
@@ -33,7 +34,8 @@ steps:
           -var "project_id=$_PROJECT_ID" \
           -var "subnet_cidr=$_SUBNET_CIDR" \
           -var "subnet_region=$_SUBNET_REGION" \
-          -var "subnet_zone=$_SUBNET_ZONE"
+          -var "subnet_zone=$_SUBNET_ZONE" \
+          -var "region=$_REGION"
 
 
 options:
