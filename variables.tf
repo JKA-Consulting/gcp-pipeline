@@ -2,18 +2,18 @@ variable "region" {
   description = "default project region"
 }
 
-variable "project-id" {
+variable "project_id" {
   description = "project id"
 }
 
-variable "subnet-cidr" {
+variable "subnet_cidr" {
   description = "project cidr block"
 }
 
-variable "subnet-region" {
+variable "subnet_region" {
   description = "subnet region of the vpc"
 }
 
-variable "subnet-zone" {
+variable "subnet_zone" {
   description = "subnet zone of the vpc"
 }

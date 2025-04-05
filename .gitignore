@@ -1,5 +1,5 @@
-.terraform/*
-
-.terraform.*
-
-terraform.lock.*
+# Terraform directories and files
+.terraform/
+.terraform.lock.hcl
+terraform.tfvars
+terraform.tfvars.json
