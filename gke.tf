@@ -1,4 +1,4 @@
-# Get the latest available GKE version in the specified zone
+# Get the latest available GKE versions in the specified zone
 data "google_container_engine_versions" "gke_version" {
   location = var.subnet_zone
 }
@@ -15,13 +15,11 @@ resource "google_container_cluster" "demo-cluster" {
 
   ip_allocation_policy {}
 
-  # Optional: if using a release channel instead of manual version pinning
-  # release_channel {
-  #   channel = "REGULAR"
-  # }
+  # Explicitly set the master version to match latest available
+  min_master_version = data.google_container_engine_versions.gke_version.latest_master_version
 }
 
-# Node Pool Resource using the latest available GKE version
+# Node Pool Resource using the latest available node version
 resource "google_container_node_pool" "demo-cluster-nodes" {
   name       = "${var.project_id}-node-pool"
   location   = var.subnet_zone
