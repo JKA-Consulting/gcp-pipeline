@@ -1,7 +1,7 @@
 # Get the latest available GKE versions in the specified zone
-data "google_container_engine_versions" "gke_version" {
-  location = var.subnet_zone
-}
+# data "google_container_engine_versions" "gke_version" {
+#   location = var.subnet_zone
+# }
 
 # GKE Cluster Resource (without default node pool)
 resource "google_container_cluster" "demo-cluster" {
@@ -16,7 +16,7 @@ resource "google_container_cluster" "demo-cluster" {
   ip_allocation_policy {}
 
   # Explicitly set the master version to match latest available
-  min_master_version = data.google_container_engine_versions.gke_version.latest_master_version
+  # min_master_version = data.google_container_engine_versions.gke_version.latest_master_version
 }
 
 # Node Pool Resource using the latest available node version
@@ -26,7 +26,7 @@ resource "google_container_node_pool" "demo-cluster-nodes" {
   cluster    = google_container_cluster.demo-cluster.name
   node_count = 1
 
-  version    = data.google_container_engine_versions.gke_version.latest_node_version
+  # version    = data.google_container_engine_versions.gke_version.latest_node_version
 
   node_config {
     machine_type = "n1-standard-1"
