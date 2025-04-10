@@ -28,8 +28,13 @@ resource "google_container_node_pool" "demo-cluster-nodes" {
 
   # version    = data.google_container_engine_versions.gke_version.latest_node_version
 
+  autoscaling {
+    min_node_count = 1
+    max_node_count = 3
+  }
+
   node_config {
-    machine_type = "n1-standard-1"
+    machine_type = "e2-standard-4"
 
     oauth_scopes = [
       "https://www.googleapis.com/auth/logging.write",
